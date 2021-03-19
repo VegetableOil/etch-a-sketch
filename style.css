@@ -85,18 +85,42 @@ body main #canvas {
           box-shadow: 0 0 10px 0 rgba(179, 179, 179, 0.356);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[100];
-      grid-template-columns: repeat(100, 1fr);
-  -ms-grid-rows: (1fr)[100];
-      grid-template-rows: repeat(100, 1fr);
 }
 
-body main #canvas .tile {
-  border-radius: 50%;
+body main label {
+  color: white;
+  font-size: 18px;
 }
 
-body main #canvas .tile:active {
-  background-color: white;
+body main input {
+  outline: none;
+  padding: 4px 8px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  font-size: 18px;
+  width: 70px;
+  height: auto;
+}
+
+body main input::-webkit-input-placeholder {
+  font-weight: 300;
+  font-style: italic;
+}
+
+body main input:-ms-input-placeholder {
+  font-weight: 300;
+  font-style: italic;
+}
+
+body main input::-ms-input-placeholder {
+  font-weight: 300;
+  font-style: italic;
+}
+
+body main input::placeholder {
+  font-weight: 300;
+  font-style: italic;
 }
 
 body main button {

@@ -1,30 +1,59 @@
 let canvas = document.getElementById("canvas");
-let newDivArr = [];
-let btn = document.getElementById("reset-btn");
+let div;
+let size = 10;
+let divs = [];
+let sizeBtn = document.getElementById('grid-btn');
+let resetBtn = document.getElementById('reset-btn');
+let input = document.getElementById('size');
 
-function makeDivs() {
-    for (let i = 0; i < 10000; i++) {
-        newDivArr[i] = document.createElement("div");
-        newDivArr[i].classList.add("tile");
-        canvas.appendChild(newDivArr[i]);
+function main() {
+    ////////////default size///////////
+    canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size*size; i++) {
+        div = document.createElement('div');
+        divs.push(div);
+        canvas.appendChild(div);
     }
 
-    newDivArr.forEach(div => {
-        div.addEventListener("click", () => {
-            newDivArr.forEach(tile => {
-                tile.addEventListener("mouseover", () => {
-                    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-                    tile.style.backgroundColor = '#' + n.slice(0, 6);
-                });
-            });
-        });
+    divs.forEach(tile => {
+        tile.onmouseover = () => {
+            tile.style.backgroundColor = 'white';
+        }
     });
 
-    btn.addEventListener("click", () => {
-        newDivArr.forEach(item => {
-            item.style.backgroundColor = "transparent";
+    resetBtn.onclick = () => {
+        divs.forEach(item => {
+            item.style.backgroundColor = 'transparent';
         });
-    });
+    }
+
+    ///////////custom size/////////////
+    sizeBtn.onclick = () => {
+        size = input.value;
+
+        canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+        for (let i = 0; i < size*size; i++) {
+            div = document.createElement('div');
+            divs.push(div);
+            canvas.appendChild(div);
+        }
+
+        divs.forEach(tile => {
+            tile.onmouseover = () => {
+                tile.style.backgroundColor = 'white';
+            }
+        });
+
+        resetBtn.onclick = () => {
+            divs.forEach(item => {
+                item.style.backgroundColor = 'transparent';
+            });
+        }
+    }
 }
 
-makeDivs();
+main();

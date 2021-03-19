@@ -50,16 +50,27 @@ body {
             border: 1px solid white;
             box-shadow: 0 0 10px 0 rgba(179, 179, 179, 0.356);
             display: grid;
-            grid-template-columns: repeat(100, 1fr);
-            grid-template-rows: repeat(100, 1fr);
+        }
 
-            .tile {
-                border-radius: 50%;
-            }
+        label {
+            color: white;
+            font-size: 18px;
+        }
 
-            .tile:active {
-                background-color: white;
-            }
+        input {
+            outline: none;
+            padding: 4px 8px;
+            color: white;
+            background-color: transparent;
+            border: 1px solid white;
+            font-size: 18px;
+            width: 70px;
+            height: auto;
+        }
+
+        input::placeholder {
+            font-weight: 300;
+            font-style: italic;
         }
 
         button {
@@ -82,6 +93,10 @@ body {
             background-color: rgb(170, 170, 170);
         }
     }
+}
+
+.tile:hover {
+    background-color: white;
 }
 
 @media screen and (max-width: 1000px) {
