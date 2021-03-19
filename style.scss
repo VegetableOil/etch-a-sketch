@@ -1,3 +1,7 @@
+:root {
+    $sm: 600px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,12 +23,11 @@
 
 body {
     background-color: rgb(41, 41, 41);
-    @include widthHeight(100vw, 100vh);
-    @include flexy(flex-start, center, column);
+    @include flexy(center, center, column);
 
     header {
-        @include widthHeight(100%, fit-content);
         @include flexy(center, center, column);
+        @include widthHeight(100%, 60px);
         position: absolute;
         top: 0;
         left: 0;
@@ -41,9 +44,9 @@ body {
     }
 
     main {
-        @include widthHeight(100%, 100%);
         @include flexy(center, center, column);
-        padding-top: 60px;
+        @include widthHeight(100%, 100%);
+        padding-top: 80px;
 
         #canvas {
             @include widthHeight(400px, 400px);
@@ -66,6 +69,7 @@ body {
             font-size: 18px;
             width: 70px;
             height: auto;
+            border-radius: 4px;
         }
 
         input::placeholder {
@@ -92,15 +96,5 @@ body {
         button:active {
             background-color: rgb(170, 170, 170);
         }
-    }
-}
-
-.tile:hover {
-    background-color: white;
-}
-
-@media screen and (max-width: 1000px) {
-    #canvas {
-        @include widthHeight(200px, 200px);
     }
 }
